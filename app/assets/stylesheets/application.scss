@@ -1,0 +1,81 @@
+@import "./reset";
+
+.test {
+  background-color: rgb(198, 203, 206);
+  width: 900px;
+  min-height: 600px;
+  margin: 0 auto;
+  float: center;
+  border: solid #008080;
+}
+
+
+
+.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  text-align: center;
+  display: block;
+}
+
+.card-content {
+  width: 600x;
+  background-color: white;
+}
+
+.card-main {
+  width: 500x;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+}
+
+.comment {
+  margin: 0 auto;
+  height: 300px;
+  width: 75%;
+  margin-top: 100px;
+}
+
+.name {
+  float: right;
+  height: 100px;
+  width: 100px;
+  margin-right: 50px;
+}
+
+.list {
+  height: 22px;
+  width: 50px;
+  background-color: beige;
+  float: right;
+  margin-top: 50px;
+}
+
+.more-list ul {
+  line-height: 22px;
+}
+
+.list li {
+  float: right;
+  font-size: 12px;
+  text-align: 22px;
+}
+
+.comment-title {
+  margin: 0 auto;
+  height: 20px;
+  width: 120px;
+  font-size: 20px;
+}
+
+.button {
+  text-align: center;
+}
+
+.btn--block {
+  height: 50px;
+  width: 150px;
+  text-align: center;
+}
+

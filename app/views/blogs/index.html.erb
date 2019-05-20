@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
+
+      <% @blogs.each do |blog|%>
+        <div class="card">
+          <div class = "test">
+            <div class = "test2">
+              <div class = card-main>
+                <span class="title"><%= blog.title %></span>
+                <div class="card-content">
+                  <%= simple_format(blog.text) %>
+                </div>
+                <div class="name">
+                  <a> name: </a>
+                  <%= blog.user.nickname %>
+                </div>
+              </div>
+              <div class = list>
+                <% if user_signed_in? && current_user.id == blog.user.id %>
+                  <ul class="more_list">
+                    <li>
+                      <%= link_to '削除', "/blogs/#{blog.id}", method: :delete %>
+                    </li>
+                    <li>
+                      <%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %>
+                    </li>              
+                  </ul>
+                <% end %>    
+              </div>
+              <div class = "comment">               
+                <%= form_for [blog, @comment] do |f| %>
+                  <div class = "comment-form">
+                    <div class = "comment-title">
+                    <h6>
+                      コメントする
+                    </h6>
+                  </div>
+                    <div style="margin: 30px 100px">
+                    <%= f.text_area :text, placeholder: 'コメント', style: 'width: 500px;height: 40px;' %>
+                    </div>
+                    <div class = "button">
+                    <%= button_tag type: "submit", class: "btn btn--block" do %>
+                      投稿する<i class="icon-arrow-right"></i>
+                    <% end %>
+                    </div>
+                <% end %>
+              </div>
+              <div class = "comments">
+                <% blog.comments.each do |comment| %>
+                  <% if blog.id == comment.blog_id %>
+                    <p>
+                      <%= comment.text %>
+                    </p>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div> 
+      <% end %>
+    <%= paginate(@blogs)%>
+
